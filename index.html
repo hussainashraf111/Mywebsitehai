@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITNESS </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        padding-top: 100px;
+
+        font-size: clamp(15px, 1.5vw, 16px);
+    }
+
+
+    .logo {
+        color: green;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 0 0 5px;
+    }
+
+    header {
+        background-color: black;
+        color: white;
+        padding: 2rem;
+        font-weight: bold;
+        max-height: 150px;
+        height: auto;
+        position: relative;
+    }
+
+    #drop {
+        display: none;
+        color: black;
+        width: 150px;
+        background-color: white;
+        text-shadow: 0 0 5px green;
+        position: absolute;
+        list-style: none;
+        padding: 5px 0;
+        margin: 0;
+        text-align: center;
+        font-size: 1rem;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+
+    #drop li:hover {
+        background-color: rgba(0, 0, 0, 0.651);
+        color: white;
+    }
+
+    #drop a {
+        color: black;
+    }
+
+    #drop a:hover {
+        color: white;
+    }
+
+    #nav-link {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    /* MOBILE MENU */
+    #hamburger {
+        display: none;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    #containerimage {
+        width: 100%;
+        padding: 20px;
+        height: 100svh;
+        overflow: hidden;
+        position: relative;
+        object-fit: cover;
+
+    }
+
+    #containerimage img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .fade-out {
+        opacity: 0.3;
+    }
+
+    #containerimage h1 {
+        position: absolute;
+        top:40%;
+        /* exact vertical center */
+        left: 50%;
+        /* horizontal center */
+        transform: translate(-50%, -50%);
+        /* true center */
+        z-index: 10;
+font-weight: bold;
+        font-size: 36px;
+        line-height: 1.2;
+        color: white;
+        text-align: center;
+        margin: 0;
+        /* padding/margin problem remove */
+    }
+
+    #containerimage h2 {
+        position: absolute;
+        z-index: 10;
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+        font-weight: bold;
+        color: white;
+
+    }
+
+    .join-btn {
+        position: absolute;
+        z-index: 10;
+        top: 53%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px 10px;
+        font-size: 16px;
+        font-weight: 600;
+        background: white;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .join-btn:hover {
+        background: rgba(175, 146, 146, 0.238);
+    }
+
+    .video1 {
+        min-width: 300px;
+        max-width: 600px;
+        width: 100%;
+        height: auto;
+        margin: 5% auto;
+        border: 5px inset black;
+    }
+
+    #containerimage h1,
+    #containerimage h2,
+    #containerimage button {
+        opacity: 0;
+        transition: 0.6s ease;
+    }
+
+    #containerimage h1.show,
+    #containerimage h2.show,
+    #containerimage button.show {
+        opacity: 1;
+
+    }
+
+    .videoh1 {
+        font-size: 2rem;
+        font-weight: bold;
+        font-style: italic;
+
+    }
+
+    .containeraboutus {
+        min-width: 300px;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        margin-top: 2%;
+
+    }
+
+    .memsec {
+        background-color: black;
+        padding: 40px 0;
+    }
+
+    .containermem {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+
+        display: flex;
+        gap: 15px;
+    }
+
+    /* card */
+    .memcard {
+        flex: 1;
+        height: 320px;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid white;
+        border-radius: 20px;
+    }
+
+
+    .memcard img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    .memtext {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        text-align: center;
+
+        padding: 12px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .memtext h1 {
+        color: white;
+    }
+
+    .memtext span {
+        color: yellow;
+        padding-left: 3px;
+    }
+
+    .memberh1 {
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .info {
+        background-color: black;
+        padding: 40px 0;
+        margin: auto 0;
+        margin-top: 150px;
+
+    }
+
+    .infodiv h1 {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: green;
+
+    }
+
+    .infodiv span {
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        padding-left: 10px;
+        padding-top: 30px;
+    }
+
+    .infodiv i {
+        padding-top: 30px;
+    }
+
+    .infodiv {
+        max-width: 500px;
+        border: 2px solid black;
+        border-left: 4px solid green;
+        overflow: hidden;
+        background-color: rgb(24, 17, 17);
+        margin: 0 auto;
+    }
+
+    form {
+        max-width: 550px;
+        height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: rgb(24, 17, 17);
+        color: white;
+        padding: 20px;
+    }
+
+    .infoh1 {
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .mb-3 input {
+        background-color: rgb(95, 82, 82);
+        border-bottom: 5px solid green;
+    }
+
+    .mb-3 textarea {
+        background-color: rgb(95, 82, 82);
+        border-bottom: 5px solid green
+    }
+
+    .mb-3 ::placeholder {
+        color: white;
+
+    }
+
+    .btn {
+        width: 50%;
+        padding: 0 auto;
+        margin: 0 auto;
+        background-color: rgb(141, 127, 127);
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: bold;
+        transition: 1.5s all ease-in-out;
+    }
+
+    .btn:hover {
+        transform: scale(1.06);
+        background-color: rgb(141, 127, 127);
+    }
+
+    .ask_sec {
+        margin-top: 150px;
+    }
+
+    .ask_sec h1 {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .ask_sec h1 span {
+        color: green;
+    }
+
+    .faq {
+        width: 80%;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+
+    .faq summary {
+        font-weight: bold;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .faq p {
+        margin-top: 10px;
+    }
+
+    .faq-container {
+        width: 90%;
+        max-width: 800px;
+        margin: 50px auto;
+
+    }
+
+    .faq {
+        margin-bottom: 10px;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+    }
+
+    .question {
+        padding: 15px 10px;
+        cursor: pointer;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .question:hover {
+        background: #f0f0f0;
+    }
+
+    .arrow {
+        transition: transform 0.3s ease;
+        font-size: 18px;
+    }
+
+    .answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        background: #fafafa;
+        color: #555;
+        transition: max-height 0.5s ease, padding 0.5s ease;
+    }
+
+    .answer.open {
+        padding: auto 20px;
+    }
+
+    .pro-footer {
+        background: #0b0b0b;
+        color: #e0e0e0;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .footer-wrap {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding: 60px 20px;
+    }
+
+    .footer-col h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: #ffffff;
+    }
+
+    .footer-col h4 {
+        font-size: 16px;
+        margin-bottom: 12px;
+        color: #ffffff;
+    }
+
+    .footer-col p,
+    .footer-col li {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #bdbdbd;
+    }
+
+    .footer-col ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+        text-decoration: none;
+        color: #bdbdbd;
+        transition: 0.3s;
+    }
+
+    .footer-col ul li a:hover {
+        color: #00ff99;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #222;
+        text-align: center;
+        padding: 15px;
+        font-size: 13px;
+        color: #999;
+    }
+
+    .flogo {
+        color: green;
+        font-size: 2.5rem;
+        font-weight: bold;
+
+    }
+
+    @media(max-width:576px) {
+        #hamburger {
+            display: block;
+        }
+
+        #nav-link {
+            display: none;
+            flex-direction: column;
+            background: black;
+            width: 100%;
+            padding: 5px;
+        }
+
+        #drop {
+            max-width: 100px !important;
+            width: 100%;
+            font-size: 3px !important;
+        }
+
+        .logo {
+            font-size: 1rem;
+        }
+
+        header {
+            max-height: 150px;
+
+        }
+
+        #drop li {
+            font-size: 2vw;
+        }
+
+        #containerimage {
+            width: 100%;
+            height: auto;
+            padding: 25px 5px;
+        }
+
+        #containerimage img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #containerimage h1 {
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3vw;
+        }
+
+        #containerimage h2 {
+            top: 46%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5vw   ;
+        }
+
+        .join-btn {
+            position: absolute;
+            z-index: 10;
+            top: 54%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 5px 5px;
+            font-size: 1.5vw;
+            font-weight: bold;
+
+        }
+
+        .video1 {
+            min-width: 200px;
+            max-width: 300px;
+            width: 90%;
+            height: auto;
+            margin: 5% auto;
+            border: 5px inset black;
+        }
+
+        .videoh1 {
+            font-size: 1rem;
+        }
+
+        .containermem {
+            flex-direction: column;
+
+        }
+
+        .containermem div {
+            height: 150px;
+            /* mobile height */
+        }
+
+        .containerinfo {
+            gap: 50px;
+        }
+
+        .inforow {
+            gap: 50px;
+        }
+    }
+
+    @media(min-width:577px) and (max-width:768px) {
+        #drop {
+            display: block !important;
+            font-size: 1rem;
+        }
+
+        #containerimage {
+            width: 100%;
+            height: auto;
+            padding: 10px;
+        }
+
+        #containerimage img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #containerimage h1 {
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px;
+        }
+
+        #containerimage h2 {
+            top: 46%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5vw;
+        }
+
+        .join-btn {
+            position: absolute;
+            z-index: 10;
+            top: 54%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 5px 5px;
+            font-size: 1.7vw;
+            font-weight: bold;
+            border-radius: none !important;
+        }
+    }
+
+    @media(max-width:993px) {
+        #drop {
+            display: block !important;
+            font-size: 1rem;
+        }
+
+        #containerimage {
+            width: 100%;
+            height: auto;
+            padding: 10px;
+        }
+
+        #containerimage img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        #containerimage h1 {
+            top: 40%;
+            width: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+    }
+
+    @media(min-width:820px) and (max-width:920px) {
+        #containerimage h1 {
+            font-size: 28px;
+        }
+
+        .join-btn {
+
+            padding: 5px 5px;
+            font-size: 1.5vw;
+            font-weight: bold;
+
+        }
+    }
+
+    /*slider'work start*/
+    .slider {
+        width: 100%;
+        overflow: hidden;
+        padding: 40px 0;
+    }
+
+    .track {
+        display: flex;
+        will-change: transform !important;
+    }
+
+    .card {
+        width: 220px;
+        height: 320px;
+        margin-right: 20px;
+        border-radius: 20px;
+        overflow: hidden;
+        flex-shrink: 0;
+        cursor: pointer;
+        transition: all 0.2s ease-in;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* overlay */
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .65);
+        backdrop-filter: blur(12px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: .3s;
+        z-index: 999;
+    }
+
+    .overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .overlay img {
+        width: 70%;
+        max-width: 420px;
+        border-radius: 25px;
+    }
+
+    /* responsive */
+    @media(max-width:900px) {
+        .card {
+            width: 190px;
+            height: 280px;
+            margin-right: 16px
+        }
+    }
+
+    @media(max-width:600px) {
+        .card {
+            width: 160px;
+            height: 240px;
+            margin-right: 14px
+        }
+
+        .overlay img {
+            width: 85%
+        }
+    }
+</style>
+
+<body>
+
+
+    <header class="fixed top-0 left-0 w-full z-50 transition duration-300 header">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+
+            <h1 class="logo">PRIME FITNESS</h1>
+
+            <!-- HAMBURGER -->
+            <div id="hamburger" onclick="toggleMenu()">☰</div>
+
+            <nav class="space-x-6" id="nav-link">
+
+                <a href="digitaljourney.html" class="hover:text-gray-300 n">Home</a>
+                <a href="gpt.html" class="hover:text-gray-300 n">About Us</a>
+
+                <div class="dropdown">
+                    <a href="#" class="hover:text-gray-300 n" onclick="dropdowntoggle(event)">Other Facilities</a>
+
+                    <ul id="drop">
+                        <li class="li1"><a href="#">Personal Training</a></li>
+                        <li><a href="#">Nutrition Plans</a></li>
+                        <li><a href="#">Group Classes</a></li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+    <script>
+        function dropdowntoggle(e) {
+            e.preventDefault();
+            const menu = document.getElementById("drop");
+
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById("nav-link");
+
+            if (nav.style.display === "flex") {
+                nav.style.display = "none";
+            } else {
+                nav.style.display = "flex";
+            }
+        }
+    </script>
+
+    <!-- HERO SECTION-->
+    <div id="containerimage">
+        <img id="heroImg" src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74">
+        <h1>WELCOME TO PRIME FITNESS></h1>
+        <h2>Stay Fit,Stay Healty</h2>
+        <button class="join-btn">Join Now</button>
+    </div>
+    <h1 class="videoh1">
+        <center>
+            OUR GYM'S VIDEO
+        </center>
+    </h1>
+    <div class="video1">
+        <video src="./video/gym video.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <!--SET TIME OUT-->
+
+    <script>
+        setTimeout(() => {
+            document.querySelector("#containerimage h1").classList.add("show");
+        }, 2000); // 0.5s baad h1
+
+        setTimeout(() => {
+            document.querySelector("#containerimage h2").classList.add("show");
+        }, 3000); // 1.2s baad h2
+
+        setTimeout(() => {
+            document.querySelector("#containerimage button").classList.add("show");
+        }, 4000); // 2s baad button
+
+    </script>
+    <!--IMAGE CHANGE KARNE KA KAAM -->
+    <script>
+        let images = [
+            "https://img.freepik.com/free-photo/low-angle-view-unrecognizable-muscular-build-man-preparing-lifting-barbell-health-club_637285-2497.jpg?semt=ais_hybrid&w=740&q=80",
+            "https://img.freepik.com/free-photo/weights-exercise-weightlifter-strong-athletic_1139-709.jpg?semt=ais_hybrid&w=740&q=80",
+            "https://cdn.wallpapersafari.com/23/54/YzyvDg.jpg",
+            "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3ltfGVufDB8fDB8fHww"
+        ];
+
+        let index = 0;
+        let heroImg = document.getElementById("heroImg");
+
+        setInterval(() => {
+            heroImg.classList.add("fade-out"); // fade out current image
+
+            setTimeout(() => {
+                index = (index + 1) % images.length;
+                heroImg.src = images[index];    // next image set karo
+                heroImg.classList.remove("fade-out"); // fade in next image
+            }, 1000); // ye 1s transition ke saath match kare
+        }, 2000); // har 4 second image change
+    </script>
+
+    <h1 class="videoh1">
+        <center><u>ABOUT US</u></center>
+    </h1>
+    </center>
+    </h1>
+    <div class="containeraboutus">
+        <p>
+            <center>
+                Welcome to <strong>Premium Fitness</strong>, where your health, strength, and overall well-being are our
+                top priority.<br><br>
+                Our mission is to create a motivating and supportive environment that inspires individuals of all
+                fitness levels to achieve their personal goals.<br>
+                At Premium Fitness, we combine cutting-edge equipment, innovative training programs, and expert guidance
+                to deliver results that last.<br><br>
+                Our team of certified trainers and nutrition specialists is committed to providing personalized fitness
+                solutions tailored to your needs,<br>
+                whether you are starting your fitness journey, aiming to improve your performance, or seeking a
+                healthier lifestyle.<br>
+                We believe that true fitness is more than just working out—it’s about creating a balanced lifestyle that
+                nurtures your mind, body, and spirit.<br><br>
+                From strength training and cardio to flexibility, mobility, and nutrition guidance, Premium Fitness
+                offers a holistic approach that empowers you to transform your life.<br>
+                We pride ourselves on building a community where every member feels supported, motivated, and inspired
+                to reach their full potential.<br>
+                At Premium Fitness, your goals are our mission, and your success is our passion.
+        </p>
+        </center>
+        <h1 class="videoh1">
+            <center>GALLERY</center>
+        </h1>
+        <!--SLIDER-->
+        <div class="slider">
+            <div class="track" id="track">
+                <div class="card"><img
+                        src="https://images.unsplash.com/photo-1576913105965-1d0b6a19a482?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3ltJTIwYm95fGVufDB8fDB8fHww">
+                </div>
+                <div class="card"><img
+                        src="https://images.unsplash.com/photo-1577221084712-45b0445d2b00?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3ltJTIwYm95fGVufDB8fDB8fHww">
+                </div>
+                <div class="card"><img
+                        src="https://images.unsplash.com/photo-1703837543381-5545225438a7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Z3ltJTIwYm95fGVufDB8fDB8fHww">
+                </div>
+                <div class="card"><img
+                        src="https://plus.unsplash.com/premium_photo-1667514683698-53e6bea7c6ba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3ltJTIwYm95fGVufDB8fDB8fHww">
+                </div>
+                <div class="card"><img
+                        src="https://images.unsplash.com/photo-1549476464-37392f717541?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGd5bSUyMGJveXxlbnwwfHwwfHx8MA%3D%3D">
+                </div>
+                <div class="card"><img
+                        src="https://images.unsplash.com/photo-1533560904424-a0c61dc306fc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGd5bSUyMGd1eXxlbnwwfHwwfHx8MA%3D%3D">
+                </div>
+                <div class="card"><img
+                        src="https://images.unsplash.com/photo-1584952449180-f8fddc0b03a3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGd5bSUyMGJveXxlbnwwfHwwfHx8MA%3D%3D">
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="overlay">
+            <img id="overlayImg">
+        </div>
+    </div>
+    <!--slider js-->
+    <script>
+        const track = document.getElementById("track");
+
+        /* duplicate content once */
+        track.innerHTML += track.innerHTML;
+
+        /* wait till images are loaded */
+        window.onload = () => {
+            const speed = 40; // pixels per second (change if needed)
+            const cycleWidth = track.scrollWidth / 2;
+
+            let startTime = performance.now();
+
+            function animate(now) {
+                const elapsed = (now - startTime) / 1000;
+                const x = -(elapsed * speed) % cycleWidth;
+
+                track.style.transform = `translate3d(${x}px,0,0)`;
+                requestAnimationFrame(animate);
+            }
+
+            requestAnimationFrame(animate);
+        };
+
+        /* overlay click */
+        const overlay = document.getElementById("overlay");
+        const overlayImg = document.getElementById("overlayImg");
+
+        document.addEventListener("click", e => {
+            const img = e.target.closest(".card img");
+            if (!img) return;
+            overlayImg.src = img.src;
+            overlay.classList.add("active");
+        });
+
+        overlay.addEventListener("click", () => {
+            overlay.classList.remove("active");
+        });
+        /*ye sahi hai*/
+
+
+    </script>
+    <!--Membership--->
+    <section class="memsec">
+        <h1 class="memberh1">
+            <center>MEMBERSHIPS</center>
+        </h1>
+        <div class="containermem">
+
+            <div class="memcard">
+                <img src="./images/poka.jpg" alt="">
+                <div class="memtext">
+                    <h1>TITANIUM<span>$100/month</span></h1>
+                </div>
+            </div>
+
+            <div class="memcard">
+                <img src="./images/mem.jpeg" alt="">
+                <div class="memtext">
+                    <h1>PLANTIUM <span>$70/month</span></h1>
+                </div>
+            </div>
+
+            <div class="memcard">
+                <img src="./images/mem33.jpg" alt="">
+                <div class="memtext">
+                    <h1>GOLD<span>$50/month</span></h1>
+                </div>
+            </div>
+
+            <div class="memcard">
+                <img src="./images/poka2.jpg" alt="">
+                <div class="memtext">
+                    <h1>SILVER<span>$30/month</span></h1>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--INFO & FORM-->
+    <section class="info">
+        <h1 class="infoh1">
+            <center>ENQUIRY</center>
+        </h1>
+        <div class="containerinfo">
+            <div class="row align-items-center inforow">
+
+                <div class="col-lg-6 col-md-6 col-12 infoo">
+                    <div class="infodiv">
+                        <h1>
+                            <center>Contact Information</center>
+                        </h1>
+                        <i class="fas fa-map-marker-alt"
+                            style="color: red; font-size: 20px;padding-left: 4px;"></i><span>Prime Fitness club
+                            karachi,Pakistan</span><br>
+                        <i class="fas fa-comment"
+                            style="color: red; font-size: 20px;padding-left: 4px;"></i><span>contact
+                            @primefitness.com</span><br>
+                        <i class="fas fa-phone"
+                            style="color: red; font-size: 20px;padding-left: 4px;"></i><span>0311100324</span><br>
+
+
+                        <div
+                            style="display: flex; justify-content: center; gap: 20px; align-items: center;background-color: rgba(0, 0, 0, 0.212);margin-top: 10px;">
+                            <i class="fab fa-facebook fb"
+                                style="color: green; font-size: 25px;padding-bottom: 10px;"></i>
+                            <i class="fab fa-instagram insta"
+                                style="color: green; font-size: 25px;padding-bottom:10px ;"></i>
+                            <i class="fab fa-whatsapp" style="color: green; font-size: 25px;padding-bottom: 10px;"></i>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Enter your Name">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter Your Email">
+
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" name="message" rows="4"
+                                placeholder="Enter your message"></textarea>
+                        </div>
+
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary btn">Submit</button>
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="ask_sec">
+        <h1>
+            <center>FREQUENTLY <span>ASKED</span> QUESTION</center>
+        </h1>
+        <div class="faq-container">
+            <div class="faq">
+                <div class="question">
+                    1. What are your gym opening hours?
+                    <span class="arrow">&#9656;</span>
+                </div>
+                <div class="answer">
+                    Answer:
+                    Premium Fitness Gym is open Monday to Saturday from 6:00 AM to 11:00 PM, and Sunday from 8:00 AM to
+                    8:00 PM to fit your busy lifestyle.
+                </div>
+            </div>
+            <div class="faq">
+                <div class="question">
+                    2. Do you offer personal training services?
+                    <span class="arrow">&#9656;</span>
+                </div>
+                <div class="answer">
+                    Answer:
+                    Yes, we provide certified personal trainers who create customized workout and nutrition plans based
+                    on your fitness goals.
+                </div>
+            </div>
+            <div class="faq">
+                <div class="question">
+                    3. What facilities are available at Premium Fitness Gym?
+                    <span class="arrow">&#9656;</span>
+                </div>
+                <div class="answer">
+                    Answer:
+                    Our gym offers modern workout equipment, cardio machines, free weights, group classes, locker rooms,
+                    and shower facilities.
+                </div>
+            </div>
+            <div class="faq">
+                <div class="question">
+                    4. Is Premium Fitness Gym suitable for beginners?
+                    <span class="arrow">&#9656;</span>
+                </div>
+                <div class="answer">
+                    Answer:
+                    Absolutely! We welcome beginners to advanced athletes. Our trainers guide you step by step to ensure
+                    safe and effective workouts.
+                </div>
+            </div>
+            <div class="faq">
+                <div class="question">
+                    5. Do you offer membership plans and trial sessions?
+                    <span class="arrow">&#9656;</span>
+                </div>
+                <div class="answer">
+                    Answer:
+                    Yes, we offer flexible membership plans along with free trial sessions so you can experience our gym
+                    before joining.
+                </div>
+            </div>
+        </div>
+        <!--FAQ SCRIPT-->
+        <script>
+            const faqs = document.querySelectorAll('.faq');
+
+            faqs.forEach(faq => {
+                faq.querySelector('.question').addEventListener("click", () => {
+
+                    const currentlyOpen = document.querySelector('.answer.open');
+
+                    if (currentlyOpen && currentlyOpen !== faq.querySelector('.answer')) {
+                        currentlyOpen.style.maxHeight = null;
+                        currentlyOpen.classList.remove('open');
+                        currentlyOpen.previousElementSibling
+                            .querySelector('.arrow').style.transform = "rotate(0deg)";
+                    }
+
+                    const answer = faq.querySelector('.answer');
+                    const arrow = faq.querySelector('.arrow');
+
+                    if (answer.classList.contains('open')) {
+                        answer.style.maxHeight = null;
+                        answer.classList.remove('open');
+                        arrow.style.transform = "rotate(0deg)";
+                    } else {
+                        answer.classList.add('open');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        arrow.style.transform = "rotate(90deg)";
+                    }
+
+                });
+            });
+
+
+
+        </script>
+
+
+
+
+    </section>
+
+    <section class="footersec">
+        <!--footer-->
+        <footer class="pro-footer">
+            <div class="footer-wrap">
+
+                <div class="footer-col">
+                    <h3 class="flogo" style="color:green">Prime Fitness </h3>
+                    <p>
+                        A modern fitness destination focused on strength, health,
+                        and long-term lifestyle transformation.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Programs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p>📍 Main Boulevard, City</p>
+                    <p>📞 +92 300 1234567</p>
+                    <p>✉ info@premiumfitness.com</p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Premium Fitness Gym. All Rights Reserved.
+            </div>
+        </footer>
+
+    </section>
+</body>
+
+</html>
